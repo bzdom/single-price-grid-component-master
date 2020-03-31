@@ -22,7 +22,9 @@
     <style>
       :root {
         --color_primary-cyan: hsl(179, 62%, 43%);
+        --color_primary-cyan-light: rgb(74, 190, 189);
         --color_primary-bright-yellow: hsl(71, 73%, 54%);
+        --color_primary-bright-yellow__hover: hsl(71, 83%, 54%);
         --color_natural-light-grey: hsl(204, 43%, 93%);
         --color_natural-grayish-blue: hsl(218, 22%, 67%);
         --font-body: "Karla", -system-ui, -apple-system, BlinkMacSystemFont,
@@ -35,33 +37,203 @@
         color: var(--color_natural-grayish-blue);
         font-family: var(--font-body);
         font-size: 16px;
-        line-height: 1.5;
+        line-height: 1.6;
         overflow: auto;
+        padding: 75px 30px;
+      }
+
+      p {
+        letter-spacing: -0.1px;
       }
 
       footer {
+        background-color: #fff;
+        border-top: 1px solid var(--color_natural-grayish-blue);
         bottom: 0;
         left: 0;
-        padding: 1.5rem;
+        padding: 0.8rem 0;
         position: fixed;
         text-align: center;
         width: 100%;
+      }
+
+      h2 {
+        color: var(--color_primary-cyan);
+        font-size: 1.25rem;
+      }
+
+      h3 {
+        font-size: 1.125rem;
+      }
+
+      h4 {
+        color: var(--color_primary-bright-yellow);
+        line-height: 1.2;
+      }
+
+      h2,
+      h3,
+      h4 {
+        margin-bottom: 1.125rem;
+      }
+
+      .content {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+
+      .content small,
+      .content li {
+        font-size: 0.875rem;
+      }
+
+      .content-blocks {
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        background-color: #fff;
+        border-radius: 7px;
+        box-shadow: 0 0 40px hsl(218, 22%, 83%);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        max-width: 635px;
+        overflow: hidden;
+      }
+
+      .block {
+        padding: 1.5625rem;
+      }
+
+      .col_full-width {
+        grid-column: 1 / -1;
+      }
+
+      .inverse,
+      .inverse h3 {
+        color: #fff;
+      }
+
+      .color-1 {
+        background-color: var(--color_primary-cyan);
+      }
+
+      .color-2 {
+        background-color: var(--color_primary-cyan-light);
+      }
+
+      .text_price {
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+
+      .text_price > * {
+        vertical-align: middle;
+      }
+
+      .text_price-value {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-right: 0.1875em;
+      }
+
+      .text_price-policy {
+        display: inline-block;
+        height: 0.9em;
+      }
+
+      .cta_default {
+        background-color: var(--color_primary-bright-yellow);
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 5px 10px hsl(179, 62%, 37%);
+        font-weight: 700;
+        margin-top: 1.7rem;
+        padding: 0.8rem 0;
+        transition: 0.1s ease-in;
+        width: 100%;
+      }
+
+      .cta_default:hover {
+        background-color: var(--color_primary-bright-yellow__hover);
+      }
+
+      .content ul {
+        list-style: none;
+      }
+
+      .content li {
+        line-height: 1.4;
+      }
+
+      .footer-place {
+        height: 53px;
+      }
+
+      @media only screen and (min-width: 599px) and (min-height: 850px) {
+        .content {
+          height: calc(100vh - 203px);
+        }
+      }
+
+      @media only screen and (min-width: 599px) {
+        h2 {
+          font-size: 1.5rem;
+        }
+
+        h4 {
+          font-size: 1.125rem;
+          margin-bottom: 1rem;
+        }
+
+        .content small {
+          font-size: 1rem;
+        }
+
+        .block {
+          padding: 40px;
+        }
       }
     </style>
   </head>
   <body>
     <section class="content">
-      <h3>Join our community</h3>
-      30-day, hassle-free money back guarantee Gain access to our full library
-      of tutorials along with expert code reviews. Perfect for any developers
-      who are serious about honing their skills.
-      <h3>Monthly Subscription</h3>
-      &#36;29 per month Full access for less than &#36;1 a day Sign Up
-      <h3>Why Us</h3>
-      Tutorials by industry experts Peer &amp; expert code review Coding
-      exercises Access to our GitHub repos Community forum Flashcard decks New
-      videos every week
+      <div class="content-blocks">
+        <div class="block col_full-width">
+          <h2>Join our community</h2>
+          <h4>30-day, hassle-free money back guarantee</h4>
+          <p>
+            <small>
+              Gain access to our full library of tutorials along with expert
+              code reviews. Perfect for any developers who are serious about
+              honing their skills.
+            </small>
+          </p>
+        </div>
+        <div class="block inverse color-1 col_flexible">
+          <h3>Monthly Subscription</h3>
+          <p class="text_price">
+            <span class="text_price-value">&#36;29 </span
+            ><span class="text_price-policy">per month</span>
+          </p>
+          <p>Full access for less than &#36;1 a day</p>
+          <button class="cta_default">Sign Up</button>
+        </div>
+        <div class="block inverse color-2 col_flexible">
+          <h3>Why Us</h3>
+          <ul>
+            <li>Tutorials by industry experts</li>
+            <li>Peer &amp; expert code review</li>
+            <li>Coding exercises</li>
+            <li>Access to our GitHub repos</li>
+            <li>Community forum</li>
+            <li>Flashcard decks</li>
+            <li>New videos every week</li>
+          </ul>
+        </div>
+      </div>
     </section>
+
+    <div class="footer-place"></div>
 
     <footer>
       <small class="attribution">
